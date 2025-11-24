@@ -1,0 +1,25 @@
+---
+title: "RNA-seq"
+author: "Tarsizious Chikaonda"
+format: html
+---
+#CLEARING THE ENVIRONMENT
+```{r}
+rm(list = ls())
+```
+
+#INSTALLING PACKAGE TO DOWNLOAD DATASET FROM
+```{r}
+if (!requireNamespace("GEOquery", quietly = TRUE))
+    install.packages("BiocManager")
+BiocManager::install("GEOquery")
+
+```
+#DOWNLOADING THE DATASET
+```{r}
+library(GEOquery)
+gse <- getGEO("GSE68849", GSEMatrix = TRUE)
+data <- gse[[1]]
+
+```
+
